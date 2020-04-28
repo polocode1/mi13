@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang=pl>
+
+<head>
+    <meta charset=utf-8>
+    <title>Django</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div class="article">
+        <div class="header">
+            <h1 id="title">Django</h1>
+        </div>
+        <div class="menu">
+            <div class="guzik"><a href="Skazani_na_Shawshank.html" class="linkg"> Skazani na Shawshank </a></div>
+            <div class="guzik"><a href="Forrest_Gump.html" class="linkg"> Forrest Gump </a></div>
+            <div class="guzik2"><a href="Django.html" class="linkg"> Django </a></div>
+            <div class="guzik"><a href="Green_Book.html" class="linkg"> Green Book </a></div>
+            <div class="guzik"><a href="Pulp_Fiction.html" class="linkg"> Pulp Fiction </a></div>
+            <div class="guzik"><a href="Zielona_Mila.html" class="linkg"> Zielona Mila </a></div>
+            <div class="guzik"><a href="Ojciec_Chrzestny.html" class="linkg"> Ojciec Chrzestny </a></div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="tekst">
+            <div class="gallery" style="max-width:1000px max-length:350px">
+                <img class="photo" src="Obrazki/django1.jpg" alt="obraz" style="width:100%;display:none">
+                <img class="photo" src="Obrazki/django2.jpg" alt="obraz" style="width:100%;display:none">
+                <img class="photo" src="Obrazki/django3.jpg" alt="obraz" style="width:100%;display:none">
+                <img class="photo" src="Obrazki/django4.jpg" alt="obraz" style="width:100%;display:none">
+
+                <div class="section">
+                    <div class="mini">
+                        <img class="demo opacity hover-opacity-off" src="Obrazki/django1.jpg" alt="obraz" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+                    </div>
+                    <div class="mini">
+                        <img class="demo opacity hover-opacity-off" src="Obrazki/django2.jpg" alt="obraz" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+                    </div>
+                    <div class="mini">
+                        <img class="demo opacity hover-opacity-off" src="Obrazki/django3.jpg" alt="obraz" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+                    </div>
+                    <div class="mini">
+                        <img class="demo opacity hover-opacity-off" src="Obrazki/django4.jpg" alt="obraz" style="width:100%;cursor:pointer" onclick="currentDiv(4)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu2">
+            <a href="https://www.filmweb.pl/film/Django-2012-620541" class="linkb" target=_blank>
+                <div class="linkizew">Recenzja Filmweb</div>
+            </a>
+            <a href="https://www.rottentomatoes.com/m/django_unchained_2012" class="linkb" target=_blank>
+                <div class="linkizew">Recenzja RottenT</div>
+            </a>
+            <a href="https://www.imdb.com/title/tt1853728/?ref_=nv_sr_srsg_0" class="linkb" target=_blank>
+                <div class="linkizew">Recenzja IMDB</div>
+            </a>
+            <a href="index.html" class="linkb">
+                <div class="guzik3">Powrót</div>
+            </a>
+        </div>
+        <div class="foot">
+            <p class="tekstdolny"> Mateusz Zyskowski 2tb </p>
+        </div>
+    </div>
+    <script>
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("photo");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace("opacity-off", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += "opacity-off";
+        }
+        var slideIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("photo");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > x.length) {
+                slideIndex = 1
+            }
+            x[slideIndex - 1].style.display = "block";
+            setTimeout(carousel, 5000);
+        }
+    </script>
+</body>
+
+</html>
